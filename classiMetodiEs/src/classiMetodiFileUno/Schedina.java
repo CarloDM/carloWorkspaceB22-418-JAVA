@@ -4,17 +4,16 @@ import java.util.ArrayList;
 
 
 public class Schedina {
-	public static void main(String[] args) {
-		// test
-		tornaSchedina(1, 90);
-	} // MAIN
+//	public static void main(String[] args) {
+//		// test
+////		tornaSchedina(1, 90);
+//	} // MAIN
 	
 	
 	
 	
 	
 	
-	// oggetto rappresentante la serie di numeri a disposizione per il giocatore
 	// usa estrattore per raccogliere numeri casuali e non ripetibili 
 	// in 3 righe da 5 colonne di numeri non ripetibili in tutte le righe... come schedina della topmbola.
 	// qui potrei implementare primo ciclo wild che chiede una serie di numeri non ripetuti

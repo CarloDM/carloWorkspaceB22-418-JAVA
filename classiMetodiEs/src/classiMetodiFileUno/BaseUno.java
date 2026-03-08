@@ -22,14 +22,14 @@ public class BaseUno {
 			
 			switch(scelta) {
 			case '1':
-//				Dadi.menuGiocoDadi();
+				System.out.println("Hai scelto qualcosa di non implementato ancora 1" );
 				break;
 			case '2':
-				System.out.println("Hai scelto di estrarre dei numeri");
+				System.out.println("Hai scelto qualcosa di non implementato ancora 2 ");
 				break;
 			case '3':
 				
-				System.out.println("Stai giocando con i tombola");
+				System.out.println("Stai giocando con la tombola");
 				
 				Tombola.ciao();
 				

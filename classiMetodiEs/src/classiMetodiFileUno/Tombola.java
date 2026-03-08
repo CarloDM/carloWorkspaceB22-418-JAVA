@@ -1,6 +1,6 @@
 package classiMetodiFileUno;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class Tombola {
 	public static void main(String[] args) {
@@ -8,8 +8,10 @@ public class Tombola {
 		//Chiedi all'utente quanti numeri estrarre su un set di 90 numeri
 		//Chiedi all'untente quanti numeri estrarre su un set impostato dall'utente stesso
 		//ATT: tutte le estrazioni dovranno essere univoche. Non posso estrarre 2 volte lo stesso numero
-		ciao();
 		studenteSaluta();
+		ciao();
+		Schedina.tornaSchedina(1, 90);
+
 //		
 	}
 	
