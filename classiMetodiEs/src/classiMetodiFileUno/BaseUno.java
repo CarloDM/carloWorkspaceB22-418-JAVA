@@ -31,7 +31,6 @@ public class BaseUno {
 				
 				System.out.println("Stai giocando con la tombola");
 				
-				Tombola.ciao();
 				
 				break;
 			case '4':
