@@ -25,56 +25,174 @@ public class Tombola {
 
 		ciaoTombola();
 		
-		final int numeroGiocatori = DidacticData.STUDENTI_22418.length;
-		List<Integer> numEstratti = new ArrayList<>();
-		int[][][] schedineGiocatori = new int[numeroGiocatori][3][5];
-		boolean[][] risultatiGiocatori = new boolean[numeroGiocatori][4];
+		final int 	  numeroGiocatori    = DidacticData.STUDENTI_22418.length;
+		List<Integer> numEstratti        = new ArrayList<>();
+		int[][][]     schedineGiocatori  = new int[numeroGiocatori][3][5];
+		boolean[][]   risultatiGiocatori = new boolean[numeroGiocatori][4];
+		boolean       isPartitaFinita    = false;
 		
-		//generare le schedine per giocatore
-		for (int i = 0; i < schedineGiocatori.length; i++) {
-			System.out.println("schedina di " + DidacticData.STUDENTI_22418[i]);
-			schedineGiocatori[i] = Schedina.generaSchedina();
-		}
+		// generare schedine per giocatore
+		schedineGiocatori = tornaSchedine(schedineGiocatori);
 		
-		// estrai un numero e ogni giocatore deve verificare se ha nella schedina i numeri estratti
-		// prima simuliamo un minimo il funzionamento con un cilio for prima di convertirlo in while
-		System.out.println("estraiamo 8 numeri");
-		numEstratti.add(14);numEstratti.add(48);numEstratti.add(56);numEstratti.add(66);
-		numEstratti.add(12);numEstratti.add(33);numEstratti.add(50);numEstratti.add(63);
+		// estrai un numero con verifica di non ripetizione
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
 		
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+		numEstratti.add(tornaNumNonRipetuto(numEstratti));
+
+
+		
+		// ogni giocatore deve verificare se ha nella schedina i numeri estratti
+
 		if(numEstratti.size() >= 2) {
+			
+			risultatiGiocatori = giocatoriNumEstratti(numeroGiocatori, numEstratti, schedineGiocatori, risultatiGiocatori );
+			
+			// verifica condizioni partita
+			for (int i = 0; i < risultatiGiocatori.length; i++) {
+				
+				// verifica discendente 
+				for (int j = 3; j >= 0; j--) {
+					
+					if(risultatiGiocatori[i][3]){
+						
+						System.out.println("tombola!!! partita finita");
+						isPartitaFinita = true;
+						break;
+					}else if(risultatiGiocatori[i][2]) {
+						
+						System.out.println("qudris!!");
+						
+						break;
+					}else if(risultatiGiocatori[i][1]) {
+						
+						System.out.println("tris!!");
+						
+						break;
+					}else if(risultatiGiocatori[i][0]) {
+						
+						System.out.println("ambo!!");
+						
+						break;
+					}	
+				}// for in for		
+			}// for
+			
+		}// if numeri estratti maggiore di 1
+		
+	
+		
+	}// main
+	
+	
+	
+	public static boolean[][] giocatoriNumEstratti(int nGiocatori, List<Integer> nEstratti, int[][][] schedGiocatori, boolean[][] resGiocatori ){
+		
+		boolean[][] rGiocatori= resGiocatori;
+		
+		for (int ng = 0; ng < nGiocatori; ng++) {
+			
+			boolean[] completati = 
+				GiocatoreTombola.tornaVerifiche(nEstratti, schedGiocatori[ng], DidacticData.STUDENTI_22418[ng]);
+			
+			rGiocatori[ng] = completati;
+			
+			};
+			
+		return rGiocatori;
+		
+	};
+	
+	public static int tornaNumNonRipetuto(List<Integer> numEstratti) {
+		
+		int numCasuale = EstrattoreNumCasuali.generaNumRandomDaA(1, 90);
+		
+		if(numEstratti.size() > 0) {
+			
+			boolean isGiaEstratto = verificaSeGiaEstratto(numCasuale, numEstratti);
+			
+			while (isGiaEstratto) {
+				
+				System.out.println("num gia estratto riprova");
+				numCasuale = EstrattoreNumCasuali.generaNumRandomDaA(1, 90);
+				isGiaEstratto = verificaSeGiaEstratto(numCasuale, numEstratti);
 
-			for (int ng = 0; ng < numeroGiocatori; ng++) {
-				
-				boolean[] completati = 
-					GiocatoreTombola.tornaVerifiche(numEstratti, schedineGiocatori[ng], DidacticData.STUDENTI_22418[ng]);
-				
-				risultatiGiocatori[ng] = completati;
- 			}
+			};
+			
 		}
 		
-		// verifica condizioni partita
-		
-		
-
-		
-		
-		
+		return numCasuale;
 	}
 	
+	public static boolean verificaSeGiaEstratto (int nRnd, List<Integer> estratti) {
+		
+		boolean res = estratti.contains(nRnd);
+		return res;
+		
+	};
 	
+	public static int[][][] tornaSchedine(int[][][] schedine){
+		
+		int[][][] schedineRes = schedine;
+		
+		for (int i = 0; i < schedineRes.length; i++) {
+			System.out.println("schedina di " + DidacticData.STUDENTI_22418[i]);
+			schedineRes[i] = Schedina.generaSchedina();
+		}
+		
+		return  schedineRes;
+	};
 	
 	public static void studenteSaluta(){
 		
 		String styudente1 = DidacticData.STUDENTI_22418[0];
 		System.out.println(styudente1);
 		
-	}
+	};
 	
 	public static void ciaoTombola(){
 	
 		System.out.println("ciao io sono tombola");
 		
-	}	
+	};	
 	
 }// class
