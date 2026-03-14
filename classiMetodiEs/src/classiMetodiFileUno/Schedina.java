@@ -4,14 +4,10 @@ import java.util.ArrayList;
 
 
 public class Schedina {
-//	public static void main(String[] args) {
-//		// test
-////		tornaSchedina(1, 90);
-//	} // MAIN
-	
-	
-	
-	
+	public static void main(String[] args) {
+		// test
+		tornaSchedina(1, 90);
+	} // MAIN
 	
 	
 	// usa estrattore per raccogliere numeri casuali e non ripetibili 
@@ -42,7 +38,7 @@ public class Schedina {
 		
 		
 	//------> funzione assegnaaione numero random agli estratti
-	// porta per rendere valido o ripetuto il numero estratto ... flag.
+	// porta per rendere valido o gia estratto il numero ... flag.
 	boolean nRndValido = true;
 	
 	//se ancora nessun numero estratto...
@@ -86,7 +82,7 @@ public class Schedina {
 					System.out.println("secondo controlloooo!!!!!");
 				};
 				
-		  System.out.println("aggiunto numero " + nRnd + " ad schedinaNow"  + numEstrattiNow );
+				System.out.println("aggiunto numero " + nRnd + " ad schedinaNow"  + numEstrattiNow );
 		
 	};
 	
