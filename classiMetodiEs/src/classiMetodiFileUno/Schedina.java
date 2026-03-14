@@ -56,7 +56,6 @@ public class Schedina {
 			}	
 		}//for
 		
-		System.out.println("=== schedina ===");
 		for (int i = 0; i < schedina.length ; i++) {
 			
 			

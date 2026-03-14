@@ -10,11 +10,11 @@ public class GiocatoreTombola {
 		
 	};
 	
-	public static boolean[] tornaVerifiche(List<Integer> numEstratti , int[][]  schedina ) {
+	public static boolean[] tornaVerifiche(List<Integer> numEstratti , int[][]  schedina, String nomeGiocatore ) {
 		
 		final List<Integer> numEstrattiNow = numEstratti;
 		final int[][]  schedinagiocatore = schedina;
-		
+
 		int[][] numeriPosseduti = new int[3][1];
 		boolean[] completati = {false,false,false,false};
 		
@@ -44,19 +44,19 @@ public class GiocatoreTombola {
 			
 			//ambo
 			if(numeriPosseduti[x][0] == 2) {
-				System.out.println("ho fatto AMBO su riga : "    + x );
+				System.out.println(nomeGiocatore + " ho fatto AMBO su riga : "    + x );
 				completati[0] = true;
 			//tris	
 			}else if(numeriPosseduti[x][0] == 3) {
-				System.out.println("ho fatto TRIS su riga : " 	 + x );
+				System.out.println(nomeGiocatore + " ho fatto TRIS su riga : " 	 + x );
 				completati[1] = true;
 			//quadris	
 			}else if(numeriPosseduti[x][0] == 4) {
-				System.out.println("ho fatto QUADRIS su riga : " + x );
+				System.out.println(nomeGiocatore + " ho fatto QUADRIS su riga : " + x );
 				completati[2] = true;
 		    //tombola	
 			}else if(numeriPosseduti[x][0] == 5) {
-				System.out.println("ho fatto TOMBOLA su riga : " + x );
+				System.out.println(nomeGiocatore + " ho fatto TOMBOLA su riga : " + x );
 				completati[3] = true;
 			}
 			

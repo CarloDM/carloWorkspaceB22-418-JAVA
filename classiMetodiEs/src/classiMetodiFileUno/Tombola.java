@@ -26,16 +26,36 @@ public class Tombola {
 		ciaoTombola();
 		
 		final int numeroGiocatori = DidacticData.STUDENTI_22418.length;
-		int[][][] schedineGiocatori = new int[numeroGiocatori][3][5];
 		List<Integer> numEstratti = new ArrayList<>();
+		int[][][] schedineGiocatori = new int[numeroGiocatori][3][5];
+		boolean[][] risultatiGiocatori = new boolean[numeroGiocatori][4];
 		
 		//generare le schedine per giocatore
 		for (int i = 0; i < schedineGiocatori.length; i++) {
-			System.out.println("schedina di "  + DidacticData.STUDENTI_22418[i]);
+			System.out.println("schedina di " + DidacticData.STUDENTI_22418[i]);
 			schedineGiocatori[i] = Schedina.generaSchedina();
 		}
 		
-		//estrai un numero e ogni giocatore deve verificare se l ha.
+		// estrai un numero e ogni giocatore deve verificare se ha nella schedina i numeri estratti
+		// prima simuliamo un minimo il funzionamento con un cilio for prima di convertirlo in while
+		System.out.println("estraiamo 8 numeri");
+		numEstratti.add(14);numEstratti.add(48);numEstratti.add(56);numEstratti.add(66);
+		numEstratti.add(12);numEstratti.add(33);numEstratti.add(50);numEstratti.add(63);
+		
+		if(numEstratti.size() >= 2) {
+
+			for (int ng = 0; ng < numeroGiocatori; ng++) {
+				
+				boolean[] completati = 
+					GiocatoreTombola.tornaVerifiche(numEstratti, schedineGiocatori[ng], DidacticData.STUDENTI_22418[ng]);
+				
+				risultatiGiocatori[ng] = completati;
+ 			}
+		}
+		
+		// verifica condizioni partita
+		
+		
 
 		
 		
