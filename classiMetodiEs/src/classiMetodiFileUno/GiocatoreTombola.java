@@ -18,6 +18,8 @@ public class GiocatoreTombola {
 		int[][] numeriPosseduti = new int[3][1];
 		boolean[] completati = {false,false,false,false};
 		
+		
+		System.out.print(" -- " + nomeGiocatore + " -- ");
 		// dati i numeri estratti e la propria schedina addizionare a numeri posseduti le corrispondenze
 		for (int i = 0; i < 3; i++) {
 			
@@ -44,27 +46,27 @@ public class GiocatoreTombola {
 			
 			//ambo
 			if(numeriPosseduti[x][0] == 2) {
-				System.out.println(nomeGiocatore + " ho fatto AMBO su riga : "    + x );
+				System.out.print(nomeGiocatore + " ho fatto AMBO su riga : "    + x + "  ");
 				completati[0] = true;
 			//tris	
 			}else if(numeriPosseduti[x][0] == 3) {
-				System.out.println(nomeGiocatore + " ho fatto TRIS su riga : " 	 + x );
+				System.out.print(nomeGiocatore + " ho fatto TERNO su riga : " 	 + x  + "  ");
 				completati[1] = true;
 			//quadris	
 			}else if(numeriPosseduti[x][0] == 4) {
-				System.out.println(nomeGiocatore + " ho fatto QUADRIS su riga : " + x );
+				System.out.print(nomeGiocatore + " ho fatto QUATERNA su riga : " + x  + "  ");
 				completati[2] = true;
 		    //tombola	
 			}else if(numeriPosseduti[x][0] == 5) {
-				System.out.println(nomeGiocatore + " ho fatto TOMBOLA su riga : " + x );
+				System.out.print(nomeGiocatore + " ho fatto TOMBOLA su riga : " + x  + "  ");
 				completati[3] = true;
 			}
-			
+
 		}//for
 		
 		// now decidere cosa restituire a invocatore Tombola
 		// restituiamo l array dei completati completati[false,false,false,false]
-	
+		System.out.println(" ");
 		return completati ;
 		
 	};

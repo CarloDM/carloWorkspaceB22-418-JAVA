@@ -13,73 +13,49 @@ import java.util.List;
 // sa verificare e dichiarare se ha fatto ambo tris quadris o tombola
 
 // abbiamo il Banco con l array dei numeri estratti
-// sa escludere i numeri rundom gia estratti
+// sa escludere i numeri random gia estratti
 // verifica le condizioni di vittoria
 // avvia l estrazione e le verifiche
 // avvisa delle vincite
 // chiude la partita quando almeno un giocatore ha fatto tombola while
 
+
 public class Tombola {
 	
-	public static void main(String[] args) {
+	
+	
+	
+	static final int 	  numeroGiocatori    = DidacticData.STUDENTI_22418.length;
+	static List<Integer> numEstratti        = new ArrayList<>();
+	static int[][][]     schedineGiocatori  = new int[numeroGiocatori][3][5];
+	static boolean[][]   risultatiGiocatori = new boolean[numeroGiocatori][4];
+	static boolean       isPartitaFinita    = false;
+	
+	
+	
+	
+	
+	public static void main(String[] args) throws InterruptedException {
 
 		ciaoTombola();
+		isPartitaFinita = false;
+		schedineGiocatori = tornaSchedine(schedineGiocatori);
 		
-		final int 	  numeroGiocatori    = DidacticData.STUDENTI_22418.length;
-		List<Integer> numEstratti        = new ArrayList<>();
-		int[][][]     schedineGiocatori  = new int[numeroGiocatori][3][5];
-		boolean[][]   risultatiGiocatori = new boolean[numeroGiocatori][4];
-		boolean       isPartitaFinita    = false;
+		while (!isPartitaFinita) {
+			turnoStep();
+			//intervallare temporalmente il ciclo
+			Thread.sleep(600);
+		}
+		
+	}// main
+	
+	public static void turnoStep() {
 		
 		// generare schedine per giocatore
-		schedineGiocatori = tornaSchedine(schedineGiocatori);
+		
 		
 		// estrai un numero con verifica di non ripetizione
 		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-		numEstratti.add(tornaNumNonRipetuto(numEstratti));
-
-
 		
 		// ogni giocatore deve verificare se ha nella schedina i numeri estratti
 
@@ -89,39 +65,49 @@ public class Tombola {
 			
 			// verifica condizioni partita
 			for (int i = 0; i < risultatiGiocatori.length; i++) {
-				
+				System.out.println(" ===  " + DidacticData.STUDENTI_22418[i]);	
 				// verifica discendente 
 				for (int j = 3; j >= 0; j--) {
 					
 					if(risultatiGiocatori[i][3]){
-						
-						System.out.println("tombola!!! partita finita");
+//						System.out.print(DidacticData.STUDENTI_22418[i ]);
+						System.out.print("_TOMBOLA!!!");
+						System.out.print(" ==== PARTITA FINITA ==== ");
 						isPartitaFinita = true;
 						break;
 					}else if(risultatiGiocatori[i][2]) {
-						
-						System.out.println("qudris!!");
+//						System.out.print(DidacticData.STUDENTI_22418[i ]);
+						System.out.print("QUATERNA!!");
 						
 						break;
 					}else if(risultatiGiocatori[i][1]) {
-						
-						System.out.println("tris!!");
+//						System.out.print(DidacticData.STUDENTI_22418[i ]);
+						System.out.print("TERNA!!");
 						
 						break;
 					}else if(risultatiGiocatori[i][0]) {
-						
-						System.out.println("ambo!!");
+//						System.out.print(DidacticData.STUDENTI_22418[i]);
+						System.out.print("AMBO!!");
 						
 						break;
 					}	
-				}// for in for		
+
+				}// for in for	
+				System.out.println(" ");
 			}// for
 			
 		}// if numeri estratti maggiore di 1
+		System.out.println(" ");
+		System.err.println("NUM EXT : " + numEstratti.getLast().toString());
+		// si puo velocemente mettere in ordine per maggior leggibilita
+		numEstratti.sort(null);
 		
-	
+		System.out.println(" ");
+		System.out.print("NUM EXTS  ");
+		System.out.println(numEstratti.toString());
+		System.out.println(" ");
 		
-	}// main
+	}
 	
 	
 	
@@ -152,7 +138,6 @@ public class Tombola {
 			
 			while (isGiaEstratto) {
 				
-				System.out.println("num gia estratto riprova");
 				numCasuale = EstrattoreNumCasuali.generaNumRandomDaA(1, 90);
 				isGiaEstratto = verificaSeGiaEstratto(numCasuale, numEstratti);
 
@@ -161,7 +146,7 @@ public class Tombola {
 		}
 		
 		return numCasuale;
-	}
+	};
 	
 	public static boolean verificaSeGiaEstratto (int nRnd, List<Integer> estratti) {
 		

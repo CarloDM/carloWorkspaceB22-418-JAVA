@@ -3,7 +3,7 @@ package classiMetodiFileUno;
 import java.util.Scanner;
 
 public class BaseUno {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 	
 		Scanner mioScann = new Scanner(System.in);
@@ -30,7 +30,7 @@ public class BaseUno {
 			case '3':
 				
 				System.out.println("Stai giocando con la tombola");
-				
+				Tombola.main(args);
 				
 				break;
 			case '4':
