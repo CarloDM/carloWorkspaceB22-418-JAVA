@@ -36,7 +36,7 @@ public class Tombola {
 		while (!isPartitaFinita) {
 			turnoStep();
 			//intervallare temporalmente il ciclo
-			Thread.sleep(320);
+			Thread.sleep(800);
 		}
 		
 	}// main
