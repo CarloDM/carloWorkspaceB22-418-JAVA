@@ -63,7 +63,8 @@ public class GiocatoreTombola {
 		}//for
 		
 		// now decidere cosa restituire a invocatore Tombola
-		// restituiamo l array dei completati completati[false,false,false,false]
+		// restituiamo l array dei completati completati[false,false,false,false] significa -[ ambo,terna,quatern, tombola ]-
+//													  
 		System.out.println(" ");
 		return completati ;
 		
