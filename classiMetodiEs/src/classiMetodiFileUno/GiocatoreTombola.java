@@ -31,8 +31,6 @@ public class GiocatoreTombola {
 					
 					numeriPosseduti[i][0] += 1;
 					
-//					System.out.println(schedinagiocatore[i][j] + " ce l'ho a riga " + i);
-					
 				};
 				
 			};
@@ -40,7 +38,7 @@ public class GiocatoreTombola {
 		};// for
 		
 		// a questo punto numeri posseduti[3][1] ci dice quanto il giocatore possiede corrispondenze per linea
-		// giocatore verifica se ha ambi tris quadris o tombole
+		// giocatore verifica se ha ambi terna quaterna o tombola
 		
 		for (int x = 0; x < numeriPosseduti.length; x++) {
 			
