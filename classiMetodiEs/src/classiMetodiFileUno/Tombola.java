@@ -20,7 +20,7 @@ import java.util.List;
 public class Tombola {
 	
 	// variabili dichiarate fuori main
-	static final int 	  numeroGiocatori    = DidacticData.STUDENTI_22418.length;
+	static final int 	 numeroGiocatori    = DidacticData.STUDENTI_22418.length;
 	static List<Integer> numEstratti        = new ArrayList<>();
 	static int[][][]     schedineGiocatori  = new int[numeroGiocatori][3][5];
 	static boolean[][]   risultatiGiocatori = new boolean[numeroGiocatori][4];
@@ -139,7 +139,7 @@ public class Tombola {
 
 			};
 			
-		}
+		};
 		
 		return numCasuale;
 	};

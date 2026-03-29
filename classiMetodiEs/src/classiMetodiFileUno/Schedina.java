@@ -17,7 +17,7 @@ public class Schedina {
 		List<Integer> numEstrattiNow = new ArrayList<>();
 		int[][]  schedina =  new int[3][5];
 		int extractionCounter = 0;
-		
+//		26 82 53 73 16 
 
 		
 		for (int i = 0; i < 15; i++) {
@@ -66,7 +66,7 @@ public class Schedina {
 			
 			System.out.println(" ");
 			
-		}
+		};
 		
 		System.out.println("-------------------");
 		return schedina;
