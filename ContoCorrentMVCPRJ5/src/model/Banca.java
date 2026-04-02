@@ -7,16 +7,14 @@ import java.util.Map;
 
 public class Banca {
 	
-	private String nomeBanca;
-	private List<ContoCorrente> conti;
-	
-	//Att: la String sarà il codice Fiscale
-	private Map<String, Correntista> correntisti;
+	private String                   nomeBanca;
+	private List<ContoCorrente>      conti;
+	private Map<String, Correntista> correntisti; //Att: la String sarà il codice Fiscale
 
 	public Banca(String nomeBanca) {
 		
-		this.nomeBanca = nomeBanca;
-		this.conti = new ArrayList<>();
+		this.nomeBanca   = nomeBanca;
+		this.conti 		 = new ArrayList<>();
 		this.correntisti = new HashMap<>();
 	}
 	
